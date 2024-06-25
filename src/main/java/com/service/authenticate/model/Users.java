@@ -1,7 +1,7 @@
 package com.service.authenticate.model;
 
 
-import com.service.authenticate.model.dto.UserDto;
+import com.service.authenticate.dto.response.UserDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

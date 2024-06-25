@@ -1,7 +1,7 @@
 package com.service.authenticate.config;
 
 import com.service.authenticate.repository.UsersRepository;
-import com.service.authenticate.model.dto.CustomUserDetails;
+import com.service.authenticate.dto.CustomUserDetails;
 import com.service.authenticate.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

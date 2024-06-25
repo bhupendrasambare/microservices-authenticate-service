@@ -1,4 +1,4 @@
-package com.service.authenticate.model.dto;
+package com.service.authenticate.dto.response;
 
 import com.service.authenticate.model.Users;
 import lombok.Data;

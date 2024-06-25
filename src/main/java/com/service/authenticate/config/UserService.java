@@ -1,9 +1,9 @@
 package com.service.authenticate.config;
 
-import com.service.authenticate.model.dto.UserDto;
+import com.service.authenticate.dto.response.UserDto;
 import com.service.authenticate.repository.RolesRepository;
 import com.service.authenticate.repository.UsersRepository;
-import com.service.authenticate.model.dto.Response;
+import com.service.authenticate.dto.response.Response;
 import com.service.authenticate.model.Roles;
 import com.service.authenticate.model.Users;
 import lombok.extern.log4j.Log4j2;

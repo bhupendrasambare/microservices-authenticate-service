@@ -1,6 +1,7 @@
-package com.service.authenticate.model.dto;
+package com.service.authenticate.dto.response;
 
 import com.service.authenticate.config.Constants;
+import com.service.authenticate.dto.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
