@@ -1,12 +1,14 @@
 server:
-  port: 9003
-  ip: 192.168.29.226
+  port: 9005
+
+custom:
+  server-ip: 192.168.29.226
 
 spring:
   application:
     name: AUTH-SERVICE
   kafka:
-    bootstrap-servers: ${server.ip}:9092
+    bootstrap-servers: ${custom.server-ip}:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -16,7 +18,7 @@ spring:
       acks: all
 
   datasource:
-    url: jdbc:mysql://${server.ip}:3306/microservices?allowPublicKeyRetrieval=true
+    url: jdbc:mysql://${custom.server-ip}:3306/microservices?allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: password
@@ -32,9 +34,9 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://${server.ip}:8761/eureka/
+      defaultZone: http://${custom.server-ip}:8761/eureka/
   instance:
-    hostname: ${server.ip}
+    hostname: ${custom.server-ip}
     prefer-ip-address: true
 
 management:
