@@ -5,6 +5,11 @@ server:
 spring:
   application:
     name: AUTH-SERVICE
+  kafka:
+    bootstrap-servers: ${server.ip}:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   datasource:
     url: jdbc:mysql://${server.ip}:3306/microservices?allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver

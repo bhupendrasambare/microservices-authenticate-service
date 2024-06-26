@@ -6,6 +6,7 @@ import com.service.authenticate.dto.request.LoginRequest;
 import com.service.authenticate.dto.response.Response;
 import com.service.authenticate.dto.Status;
 import com.service.authenticate.dto.response.UserDto;
+import com.service.authenticate.kafka.KafkaNotificationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -23,6 +24,9 @@ public class authController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    KafkaNotificationService kafkaNotificationService;
+
     @PostMapping("/register")
     @Operation(summary = "Registration", description = "User registration with unique email")
     public ResponseEntity<Response> addUser(@RequestBody UserDto users){
@@ -35,6 +39,7 @@ public class authController {
         ResponseEntity<Response> res;
         String token = userService.generateToken(users.getEmail(), users.getPassword());
         res = ResponseEntity.status(HttpStatus.OK).body(new Response(Constants.SUCCESS_CODE,"", Status.SUCCESS,token));
+        kafkaNotificationService.sendMessage(users);
         return res;
     }
 
