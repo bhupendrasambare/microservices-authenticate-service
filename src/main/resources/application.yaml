@@ -9,7 +9,7 @@ spring:
     bootstrap-servers: ${server.ip}:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.JsonSerializer
       retries: 3
       batch-size: 16384
       buffer-memory: 33554432
