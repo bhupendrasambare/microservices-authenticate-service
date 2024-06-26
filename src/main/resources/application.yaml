@@ -1,5 +1,5 @@
 server:
-  port: 9005
+  port: 9003
 
 custom:
   server-ip: 192.168.29.226
