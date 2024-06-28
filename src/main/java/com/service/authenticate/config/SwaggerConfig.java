@@ -32,7 +32,7 @@ public class SwaggerConfig {
         Contact contact = new Contact();
         contact.setEmail("bhupendrasam1404@gmail.com");
         contact.setName("Bhupendra sambare");
-        contact.setUrl("https://bhupendrasambare.github.io/profile");
+        contact.setUrl("https://bhupendrasambare.github.io/profile/");
 
         Info info = new Info()
                 .title("Authentication service API")
