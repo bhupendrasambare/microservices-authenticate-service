@@ -1,6 +1,6 @@
 # Microservices Authenticate Service
 
-This project provides an authentication service for microservices, built using Java Spring Boot with Docker and Jenkins integration.
+This project provides an authentication service for microservices, built using Java Spring Boot with Docker and Jenkins integration. It have asynchronous messaging enabled over apache kafka when login is completed.
 
 Swagger available at URL: http://localhost:9003/swagger-ui/index.html
 ![Microservices Architecture](./images/screenshoot.png)
