@@ -1,7 +1,12 @@
 server:
   port: 9003
 
+custom:
+  server-ip:localhost
+
 spring:
+  config:
+    import: "optional:configserver:http://${custom.server-ip}:9005"
   application:
     name: AUTH-SERVICE
   kafka:
