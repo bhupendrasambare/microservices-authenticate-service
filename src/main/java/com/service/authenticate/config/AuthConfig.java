@@ -54,7 +54,7 @@ public class AuthConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests( req->
-                        req.requestMatchers("/auth/**","/**")
+                        req.requestMatchers("/auth/**","/actuator","/actuator/**")
                                 .permitAll().anyRequest().authenticated()
                         )
                 .sessionManagement(
