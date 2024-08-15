@@ -2,7 +2,7 @@ server:
   port: 9003
 
 custom:
-  server-ip:localhost
+  server-ip: localhost
 
 spring:
   config:
@@ -30,6 +30,13 @@ spring:
     show-sql: false
     hibernate:
       ddl-auto: update
+  boot:
+    admin:
+      client:
+        url: http://${custom.server-ip}:8762
+        instance:
+            service-base-url: http://127.0.0.1:${server.port}
+            name: ${spring.application.name}
 
 eureka:
   client:
