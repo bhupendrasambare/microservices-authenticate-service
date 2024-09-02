@@ -4,7 +4,7 @@
  * Time   :5:01 pm
  * Project:microservices-registry
  **/
-package com.service.authenticate.config;
+package com.service.authenticate.security;
 
 import com.service.authenticate.repository.UsersRepository;
 import com.service.authenticate.dto.CustomUserDetails;

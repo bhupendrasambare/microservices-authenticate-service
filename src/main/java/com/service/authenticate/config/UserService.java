@@ -29,10 +29,10 @@ public class UserService {
     private RolesRepository rolesRepository;
 
     @Autowired
-    UsersRepository repository;
+    private UsersRepository repository;
 
     @Autowired
-    AuthConfig authConfig;
+    private AuthConfig authConfig;
 
     public ResponseEntity<Response> createUser(UserDto request) {
         Response response = new Response();

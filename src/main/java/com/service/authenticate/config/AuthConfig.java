@@ -12,6 +12,8 @@
  **/
 package com.service.authenticate.config;
 
+import com.service.authenticate.security.JwtRequestFilter;
+import com.service.authenticate.security.UsersDetailsService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -30,6 +32,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
@@ -45,6 +48,9 @@ public class AuthConfig {
     @Autowired
     UsersDetailsService usersDetailsService;
 
+    @Autowired
+    private JwtRequestFilter jwtRequestFilter;
+
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -52,15 +58,18 @@ public class AuthConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf(AbstractHttpConfigurer::disable)
+        http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests( req->
-                        req.requestMatchers("/auth/**","/actuator","/actuator/**")
+                        req.requestMatchers("/auth/register","/auth/login","/actuator","/actuator/**","/swagger-ui/**","/v3/api-docs/**")
                                 .permitAll().anyRequest().authenticated()
                         )
                 .sessionManagement(
                         session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 
-                ).build();
+                );
+        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
     }
 
     @Bean
