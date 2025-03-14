@@ -27,7 +27,7 @@ Swagger available at URL: http://localhost:9003/swagger-ui/index.html
 
 ### Prerequisites
 
-- Java 17
+- Java 21
 - MySQL
 - Apache Kafka
 - Microservices registry [Github Porject](https://github.com/bhupendrasambare/microservices-registry)
